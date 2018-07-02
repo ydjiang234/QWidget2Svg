@@ -1,7 +1,9 @@
 #include "QWidget2Svg.h"
 #include <QSvgGenerator>
 #include <QTemporaryFile>
+#include <QFile>
 #include <QPainter>
+#include <QDataStream>
 
 QWidget2Svg::QWidget2Svg() {}
 
@@ -16,6 +18,16 @@ bool QWidget2Svg::save(QWidget *w, QString path)
     file = this->render<QFile>(w, file);
     return true;
 }
+
+QByteArray QWidget2Svg::getStream(QWidget *w)
+{
+    QTemporaryFile *file = new QTemporaryFile();
+    file = this->render<QTemporaryFile>(w, file);
+    QDataStream stream(file);
+    QByteArray array = file->readAll();
+    return array;
+}
+
 
 template <class T>
 T* QWidget2Svg::render(QWidget *w, T *file)
