@@ -2,6 +2,7 @@
 #define QWIDGET2SVG_H
 #include <QWidget>
 #include <QByteArray>
+#include <iostream>
 
 
 class QWidget2Svg
@@ -10,7 +11,7 @@ public:
     QWidget2Svg();
     ~QWidget2Svg();
     bool save(QWidget *w, QString path);
-    QByteArray getStream(QWidget *w);
+    QByteArray getBytes(QWidget *w);
 private:
     template <class T>
     T* render(QWidget *w, T *file);
