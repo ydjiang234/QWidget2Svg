@@ -3,12 +3,10 @@
 #include <QTemporaryFile>
 #include <QFile>
 #include <QPainter>
-#include <QDataStream>
 
 QWidget2Svg::QWidget2Svg() {}
 
 QWidget2Svg::~QWidget2Svg() {}
-
 
 
 bool QWidget2Svg::save(QWidget *w, QString path)

@@ -2,7 +2,6 @@
 #define QWIDGET2SVG_H
 #include <QWidget>
 #include <QByteArray>
-#include <iostream>
 
 
 class QWidget2Svg
